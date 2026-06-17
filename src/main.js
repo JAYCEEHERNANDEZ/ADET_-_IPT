@@ -1,21 +1,5 @@
-// export function isValidPassword(password) {
-//     if (password.length >= 8){
-//         return true;
-//     }else if (password.length <= 8){
-//         return false;
-//     }else if (password.length === 0){
-//         return false;
-//     }
-// }
 
-// export function isContains(password){
-//     if (/[A-Z]/.test(password)) {
-//         return true;
-//     }else {
-//         return false;
-//     }
-// }
-
+//June 16, 2026
 export function isValidPassword(password) {
     if (password.length == 0) {
         return false;
@@ -48,4 +32,22 @@ export function calculateGrade(prelim, midterm, finals, lab) {
     } else {
         return 5.0; // Failed
     }
+}
+
+//June 17, 2026
+export function login(email, password){
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    const passPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+
+    const correctEmail = "juandelacruz@email.com";
+    const correctPass = "Str0ngp@ssword";
+
+    if(!emailPattern.test(email)) throw new Error('Invalid email');
+
+    if(!passPattern.test(password)) throw new Error('Weak Password');
+
+    if(email !== correctEmail || password !== correctPass) return 'Incorrect email or password';
+
+    return 'Login Successful';
+
 }
